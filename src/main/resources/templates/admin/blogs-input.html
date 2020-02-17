@@ -2,6 +2,11 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head th:replace="admin/_fragments :: head(~{::title})">
     <title>博客发布</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <link rel="stylesheet" href="../../static/lib/editormd/css/editormd.min.css" th:href="@{/lib/editormd/css/editormd.min.css}">
+    <link rel="stylesheet" href="../../static/css/me.css" th:href="@{/css/me.css}">
 </head>
 <body>
 
@@ -151,7 +156,16 @@
             height: 640,
             syncScrolling: "single",
 //        path    : "../static/lib/editormd/lib/"
-            path: "/blog/lib/editormd/lib/"
+            path: "/blog/lib/editormd/lib/",
+            markdown : "",
+            //dialogLockScreen : false,   // 设置弹出层对话框不锁屏，全局通用，默认为 true
+            //dialogShowMask : false,     // 设置弹出层对话框显示透明遮罩层，全局通用，默认为 true
+            //dialogDraggable : false,    // 设置弹出层对话框不可拖动，全局通用，默认为 true
+            //dialogMaskOpacity : 0.4,    // 设置透明遮罩层的透明度，全局通用，默认值为 0.1
+            //dialogMaskBgColor : "#000", // 设置透明遮罩层的背景颜色，全局通用，默认为 #fff
+            imageUpload : true,
+            imageFormats : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+            imageUploadURL : "/file/upload.do?test=dfdf",//上传的请求,需要返回如下格式:
         });
     });
     $('.menu.toggle').click(function () {
@@ -160,6 +174,10 @@
 
     $('.ui.dropdown').dropdown({
         on: 'hover'
+    });
+
+    $('.editormd-image-dialog').css({
+        height:'420px'
     });
 
     $('#save-btn').click(function () {

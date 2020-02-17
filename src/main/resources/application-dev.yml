@@ -7,14 +7,15 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
-    show-sql: true
+    show-sql: false
 
 logging:
   level:
     root: info
     com.csust: debug
   file:
-    path: log/blog-dev.log
+    path: log/dev
+
 server:
   servlet:
     context-path: /blog

@@ -20,6 +20,5 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
         }else {
             return true;
         }
-
     }
 }
